@@ -1,0 +1,5 @@
+numpy
+scipy
+matplotlib
+ikpy
+pytransform3d
