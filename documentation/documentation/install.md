@@ -1,6 +1,6 @@
 # Voorbereidingen
 
-In deze sectie lees je hoe je Visual Studio Code (VS Code) en PlatformIO installeert voor het ontwikkelen van microcontrollerprojecten.
+In deze sectie lees je hoe je de benodigde software installeert om aan de slag te gaan met de Webots workshop.
 
 ## Installeren van Python
 
