@@ -215,6 +215,7 @@ Converteer de Pioneer 3-AT robot naar “Base Nodes”:
 Expandeer de Pioneer 3-AT node en selecteer de Childeren-node
 - Voeg aan de Childeren-node een camera toe
   - Er wordt een virtuele camera gemaakt welke (nog) geen visuele vorm heeft
+  - Select voor het recognition attribuut van de camera de 'Recognition' optie, als deze NULL is.
 
 - Activeer in de controller de camera door de “use_camera” variable van `False` naar `True` te wijzigen
 
@@ -229,9 +230,6 @@ Expandeer van de Pose de Childeren-node en voeg hieraan een Shape in de vorm van
 - Zorg ervoor dat de cilinder de juiste afmetingen en plaats op de robot, maak hiervan zelf een inschatting
 
 ![camera object](../images/webot_camera_object.png)
-
-
-
 
 ## Opdracht 1.4: Testen
 
