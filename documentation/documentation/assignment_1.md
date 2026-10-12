@@ -64,7 +64,7 @@ Voeg een node in de vorm van een Pioneer3at toe aan de arena
 ![Pioneer3at toevoegen](../images/model_explorer.png)
 
 - Selecteer de “Pioneer3at” robot en click op “Add”
-:::tip
+:::{tip}
 Je kunt ook de Find functie gebruiken
 :::
 
@@ -75,7 +75,7 @@ Als de robot is geplaats, kun je hem verplaatsen naar een door jou gekozen plaat
 
 Sla de wereld op
 
-## Opdracht 1.2.3: Toevoegen van de obstakels aan de arena
+### Opdracht 1.2.3: Toevoegen van de obstakels aan de arena
 Plaats een aantal obstakels in de arena, willekeurig verspreid
 - Je kunt de nodes uit “PROTO nodes(Webots Projects)” gebruiken
 - Bijvoorbeeld:
@@ -89,7 +89,7 @@ Zorg er voor dat de objecten ongeveer even hoog zijn als de Pioneer3at robot.
 
 Sla de wereld op
 
-## Opdracht 1.2.4: Simulatie starten
+### Opdracht 1.2.4: Simulatie starten
 Je kunt de simulatie nu starten, echter je zult ontdekken dat er nog niet gebeurt, toch behandelen we hier even de belangrijkste knoppen
 
 ![Simulatie knoppen](../images/simulation_buttons.png)
@@ -110,7 +110,7 @@ Je kunt de simulatie nu starten, echter je zult ontdekken dat er nog niet gebeur
 Als de simuatie niet werkt kijk dan bij [Veelgestelde vragen](faq.md)
 :::
 
-## Opdracht 1.2.5: Controller toevoegen voor Pioneer3at
+### Opdracht 1.2.5: Controller toevoegen voor Pioneer3at
 Als je probeer te simuleren zul je merken dat de robot nog niet beweegt. Er is nog geen controller aan toegevoegd.
 
 Voeg een controller toe
@@ -127,7 +127,7 @@ Voeg een controller toe
 
 Start een simulatie
 
-## Opdracht 1.2.6: Verkennen van de controller
+### Opdracht 1.2.6: Verkennen van de controller
 
 Open het “Pioneer2atV2_controller.py” bestand in de Code Editor (rechter paneel)
 
@@ -203,7 +203,7 @@ Sla het “Pioneer2atV2_controller.py”  regelmatig op
 Test je simulatie
 
 
-### Opdracht 1.3: Toevoeg van virtuele camera
+## Opdracht 1.3: Toevoeg van virtuele camera
 
 In deze opdracht ga je een virtuele camera toevoegen aan de Pioneer3at robot in de simulatie.
 

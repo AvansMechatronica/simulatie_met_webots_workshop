@@ -80,11 +80,11 @@ use_recognition = False
 if use_camera:
     camera = pioneer_node.getDevice('camera')
     camera.enable(timestep)
-	if use_recognition:
-		if not camera.hasRecognition():
-			print("Camera has no recognition")
-		else:
-			camera.recognitionEnable(timestep)
+    if use_recognition:
+        if not camera.hasRecognition():
+            print("Camera has no recognition")
+        else:
+            camera.recognitionEnable(timestep)
 
 # You should insert a getDevice-like function in order to get the
 # instance of a device of the pioneer_node. Something like:
