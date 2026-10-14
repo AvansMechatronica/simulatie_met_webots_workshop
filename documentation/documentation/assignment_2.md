@@ -82,7 +82,7 @@ De volgende `Types` worden gebruikt in het programma:
   - In radialen
   - Let op “base” doet niet mee
 
-![image](../images/niryo_jouint_names.png)
+![image](../images/niryo_joint_names.png)
 
 ## Beschrijving van Python functies
 
