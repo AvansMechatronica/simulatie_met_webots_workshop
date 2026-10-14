@@ -34,12 +34,36 @@ Je zult zien dat er een blokje door de transportband naar de robot wordt aangevo
 - Iedere keer dat je start zal het blokje op een andere positie stoppen
   - Wel even de rewind knop gebruiken
 
+:::{note}
+In de console van webots zul je een aantal waarschuwingen zien, deze kunnen genegeerd worden.
 
+Voorbeeld van een waarschuwing:
+```
+WARNING: DEF NIRYO_NED Robot > HingeJoint "shoulder_link" > Solid "shoulder_link" > HingeJoint "arm_link" > Solid "arm_link" > HingeJoint "elbow_link" > Solid "elbow_link" > HingeJoint "forearm_link" > Solid "forearm_link" > HingeJoint "wrist_link" > RotationalMotor "joint_5": too low requested position: -1.5708 < -1.5
+
+```
+:::
 ## Opdracht 2.1
 
 Maak het programma van de NiryoNED-robot-controller compleet:
 - Pak het blokje van de lopende band met de robot en drop het in het krat naast de robot.
 - Voor je eigen code in op de plaats waar “# Plaats hier je eigen states” staat (nabij regel 250
+
+Hieronder is gegeven de plaats waar je je eigen states kunt toevoegen.
+```python
+# pick and drop state definition
+# Alle toestanden(states) kunnen meerder functies hebben b.v. Entry, Do, Exit functie. Deze worden in 1 regel als List gedefineerd
+# Elke Functie dient ten minste een isReady als result te hebben, welke aangeeft dat de volgende functei/toestand aan de beurt is
+pick_n_drop_states = [['isReady = niryo.setJoints(niryo.homePos)', 'isReady = niryo.setGripper(niryo.gripperClose)', 'isReady = niryo.isReady()'], # Goto to Home position
+          ['isReady = timer.start(3)', 'isReady = timer.isReady()'], # wacht 3 seconden
+
+          # Plaats hier je eigen states
+          ['isReady = niryo.setJoints(dropPos)', 'isReady = niryo.isReady()'], # Ga naar de drop positie
+          # Plaats hier je eigen states
+
+          ['isReady = timer.start(3)', 'isReady = timer.isReady()']] # Wacht 3 seconden
+```
+
 
 :::{tip}
 
@@ -56,35 +80,46 @@ Inverse-kinematica en transforms zijn al goed voor geconfigureerd
 
 - Zorg dat je programmeer-code op de juiste manier is ingespongen
 
-- Maak eerst een stappenplan hoe je het wilt aanpakken
-Wat is de volgorde van de functies die je wilt gebruiken
+- Volg de TODO stappen in het programma
 
+- De volgende offsets zijn beschikbaar voor gebruik bij het grijpen van objecten:
+  - niryo.grasp_offset
+  - niryo.post_grasp_offset
+  - niryo.pre_grasp_offset
+
+```python
+niryo.grasp_offset = [0, 0, 0.04]
+niryo.post_grasp_offset = [0, 0, 0.1]
+niryo.pre_grasp_offset = [0, 0, 0.1]
+```
 :::
 
 
 Maak een filmpje van het resultaat en lever dit in op Brightspace aan het einde van de les.
 Ook doen als het nog niet geheel correct werkt!
 
-## Beschrijving van gebruikte `Types`
+## Beschrijving van gebruikte Pythone Types
 De volgende `Types` worden gebruikt in het programma:
 
 - translation-position-type
   - [x, y, z]
-  - In meters
+    - In meters
 
 
 - translation-rotation-type (euler)
   - [roll, pitch, yaw]
-  - In radialen
+    - In radialen
 
 - joints-type
   - [shoulder, arm, elbow, forarm, wrist, hand]
-  - In radialen
-  - Let op “base” doet niet mee
+    - In radialen
+    - Let op “base” doet niet mee
+
 
 ![image](../images/niryo_joint_names.png)
 
 ## Beschrijving van Python functies
+De volgende Python functies worden gebruikt in het programma:
 
 ### niryo.setJoints()
 Doel: Beweegt de joints van de robot-arm naar de ingestelde joints-waardes

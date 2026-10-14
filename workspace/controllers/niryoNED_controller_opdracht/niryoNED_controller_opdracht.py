@@ -252,10 +252,19 @@ def getObjectTranslationFromCamera():
 # Elke Functie dient ten minste een isReady als result te hebben, welke aangeeft dat de volgende functei/toestand aan de beurt is
 pick_n_drop_states = [['isReady = niryo.setJoints(niryo.homePos)', 'isReady = niryo.setGripper(niryo.gripperClose)', 'isReady = niryo.isReady()'], # Goto to Home position
           ['isReady = timer.start(3)', 'isReady = timer.isReady()'], # wacht 3 seconden
-
           # Plaats hier je eigen states
+          # TODO 1: Verkrijg de positie van de op te pakken doos
+          # TODO 2: Bereken de jounts waardes voor de pre-grasp positie 
+          # TODO 3: Verplaats de robot naar de pre-grasp positie
+          # TODO 4: Open de gripper
+          # TODO 5: Bereken de jounts waardes voor de grasp positie 
+          # TODO 6: Verplaats de robot naar de grasp positie
+          # TODO 7: Sluit de gripper
+          # TODO 8: Bereken de jounts waardes voor de post-grasp positie
+          # TODO 9: Verplaats de robot naar de post-grasp positie
           ['isReady = niryo.setJoints(dropPos)', 'isReady = niryo.isReady()'], # Ga naar de drop positie
           # Plaats hier je eigen states
+          # TODO 10: Open de gripper
 
           ['isReady = timer.start(3)', 'isReady = timer.isReady()']] # Wacht 3 seconden
 

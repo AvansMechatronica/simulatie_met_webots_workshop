@@ -1,4 +1,4 @@
-#VRML_SIM R2023b utf8
+#VRML_SIM R2025a utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -13,7 +13,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.28334460627128855 0.28997169634388376 0.9141292301509776 1.5956852262729255
-  position 0.27921816873326677 -1.6634532055582347 1.496229403991001
+  position 0.2943913249329136 -1.4441297284132264 1.3494193706673336
 }
 TexturedBackground {
   texture "factory"
@@ -28,7 +28,8 @@ RectangleArena {
   }
 }
 DEF BOX SolidBox {
-  translation -0.28 0 0.309933
+  translation 0.075133 3.89929e-16 0.323431
+  rotation 7.998947024815482e-10 1 -1.8834008592062618e-10 1.0006887055751362e-06
   size 0.035 0.02 0.047
   appearance PBRAppearance {
     baseColor 1 0 0
@@ -307,6 +308,7 @@ DEF NIRYO_NED Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        position 0.09599784305039581
         axis 0 0 1
         anchor 0 0 0.1065
       }
@@ -323,6 +325,7 @@ DEF NIRYO_NED Robot {
       ]
       endPoint Solid {
         translation 0 0 0.1065
+        rotation 0 0 0.9999999999999999 0.09599784305039638
         children [
           Shape {
             appearance USE BLACK_APPEARANCE
@@ -342,6 +345,7 @@ DEF NIRYO_NED Robot {
           }
           HingeJoint {
             jointParameters HingeJointParameters {
+              position 0.09599558508147454
               axis -1 0 0.000796
               anchor 0 0 0.065
             }
@@ -358,7 +362,7 @@ DEF NIRYO_NED Robot {
             ]
             endPoint Solid {
               translation 0 0 0.065
-              rotation 1.2666981567328539e-15 -1 -3.926794963957503e-17 1.5699999999999927
+              rotation -0.047924163614601056 -0.997698797879095 0.04796231074968592 1.5723038533003768
               children [
                 Pose {
                   rotation 0 0 -1 1.57
@@ -403,6 +407,7 @@ DEF NIRYO_NED Robot {
                 }
                 HingeJoint {
                   jointParameters HingeJointParameters {
+                    position -0.09599255936542794
                     axis 0 0 1
                     anchor 0.221 0.012 0
                   }
@@ -419,6 +424,7 @@ DEF NIRYO_NED Robot {
                   ]
                   endPoint Solid {
                     translation 0.221 0.012 0
+                    rotation 0 0 -1 0.0959925593654285
                     children [
                       Pose {
                         rotation 0 0 -1 1.57
@@ -449,6 +455,7 @@ DEF NIRYO_NED Robot {
                       }
                       HingeJoint {
                         jointParameters HingeJointParameters {
+                          position 1.4582941092780426e-08
                           axis -0.000796 1 1e-06
                           anchor 0.032 0.042 0
                         }
@@ -465,7 +472,7 @@ DEF NIRYO_NED Robot {
                         ]
                         endPoint Solid {
                           translation 0.032 0.042 0
-                          rotation -0.5775032287046064 -0.5775032287046076 -0.5770442285228308 2.0934749999999958
+                          rotation -0.5775032343198179 -0.5775032258981184 -0.5770442257118742 2.093474991584998
                           children [
                             Pose {
                               translation 0 0 0.0698
@@ -512,13 +519,14 @@ DEF NIRYO_NED Robot {
                             }
                             HingeJoint {
                               jointParameters HingeJointParameters {
+                                position -1.5000000120698254
                                 axis -1 0 1e-06
                                 anchor 0 0 0.188
                               }
                               device [
                                 RotationalMotor {
                                   name "joint_5"
-                                  minPosition -1.5
+                                  minPosition -1.5000000120698254
                                   maxPosition 1.5
                                   maxTorque 10000
                                 }
@@ -528,7 +536,7 @@ DEF NIRYO_NED Robot {
                               ]
                               endPoint Solid {
                                 translation 0 0 0.188
-                                rotation -0.0003979999369581397 -0.9999998415960377 0.00039799993695341867 1.5707959999999903
+                                rotation 0.5630708833443256 -0.6048978423799116 -0.5630717366499303 2.053566074509335
                                 children [
                                   Shape {
                                     appearance PBRAppearance {
@@ -565,6 +573,7 @@ DEF NIRYO_NED Robot {
                                   }
                                   HingeJoint {
                                     jointParameters HingeJointParameters {
+                                      position -5.933384495020177e-11
                                       axis 1 0 0.000796
                                       anchor 0.0197 0.00925 0
                                     }
@@ -581,7 +590,7 @@ DEF NIRYO_NED Robot {
                                     ]
                                     endPoint Solid {
                                       translation 0.0197 0.00925 0
-                                      rotation -1.0028917562693377e-23 1 -4.827388890482381e-24 1.5699999999999996
+                                      rotation -3.914100699439101e-11 1 -3.917216282828097e-11 1.5699999999999996
                                       children [
                                         Shape {
                                           appearance USE GRAY_APPEARANCE
@@ -628,6 +637,7 @@ DEF NIRYO_NED Robot {
                                             }
                                             SliderJoint {
                                               jointParameters JointParameters {
+                                                position -0.009998251782317386
                                                 axis 0 -4e-06 1
                                               }
                                               device [
@@ -643,7 +653,7 @@ DEF NIRYO_NED Robot {
                                                 }
                                               ]
                                               endPoint Solid {
-                                                translation 0.01455 -0.0244 0.009614000000000013
+                                                translation 0.01455 -0.024399960006992873 -0.00038425178223738636
                                                 rotation 1 0 0 1.5708
                                                 children [
                                                   Shape {
@@ -680,6 +690,7 @@ DEF NIRYO_NED Robot {
                                             }
                                             SliderJoint {
                                               jointParameters JointParameters {
+                                                position -0.00999664568121578
                                                 axis 0 4e-06 -1
                                               }
                                               device [
@@ -695,7 +706,7 @@ DEF NIRYO_NED Robot {
                                                 }
                                               ]
                                               endPoint Solid {
-                                                translation 0.01455 -0.0244 -0.011065999999999998
+                                                translation 0.01455 -0.024400039986582727 -0.0010693543188641918
                                                 rotation 1 0 0 1.5708
                                                 children [
                                                   Shape {
@@ -1249,12 +1260,13 @@ DEF NIRYO_NED Robot {
 Robot {
   children [
     DEF DIST_SENSOR MySharpGP2Y0A41SK0F {
-      translation 0.29 0.12 0.33
-      rotation 0 0 1 -1.5707953071795862
+      translation 0.38838830871514574 0.12000000000000001 0.3299995551583356
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
       name "Distance Sensor"
     }
     Track {
-      translation 0 0 0.22499999999999998
+      translation 8.753359795040766e-11 8.887193276143449e-23 0.2249658194486397
+      rotation -4.928299624177342e-13 1 2.984593640797295e-17 9.98009616097392e-07
       children [
         Shape {
           appearance PBRAppearance {
@@ -1281,6 +1293,7 @@ Robot {
             }
             textureTransform TextureTransform {
               scale 3.2 0.4
+              translation -0.49200000000000105 0
             }
           }
           geometry DEF BELT_BO Box {
