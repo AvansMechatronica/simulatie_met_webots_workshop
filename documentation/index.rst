@@ -19,6 +19,7 @@ Workshop Simulatie van Robots met Webots
    documentation/overview.md
    documentation/install.md
    documentation/assignment_1.md
+   documentation/assignment_2.md
    documentation/examples.md
    documentation/faq.md
    documentation/teacher_manual.md
