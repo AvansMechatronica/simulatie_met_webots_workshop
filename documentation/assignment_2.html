@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opdracht 2: Kinematics met Manipulatoren &mdash; Workshop Simulatie van Robots met Webots 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Voorbeeldprogramma’s" href="examples.html" />
+    <link rel="prev" title="Opdracht 1: Mobile platformen" href="assignment_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Simulatie van Robots met Webots
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Voorbereidingen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_1.html">Opdracht 1: Mobile platformen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Opdracht 2: Kinematics met Manipulatoren</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#doelstellingen">Doelstellingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#voorbereidingen">Voorbereidingen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starten-en-openen-webots-project">Starten en openen Webots-project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testen-werking-van-het-programma">Testen werking van het programma</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-2-1">Opdracht 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beschrijving-van-gebruikte-pythone-types">Beschrijving van gebruikte Pythone Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beschrijving-van-python-functies">Beschrijving van Python functies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#niryo-setjoints">niryo.setJoints()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getobjecttranslationfromcamera">getObjectTranslationFromCamera()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niryo-getjoints">niryo.getJoints()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kinematics-solver-get">kinematics_solver.get()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niryo-setgripper">niryo.setGripper()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#niryo-isready">niryo.isReady()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ideale-drop-position">Ideale drop-position</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Voorbeeldprogramma’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Simulatie van Robots met Webots</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Opdracht 2: Kinematics met Manipulatoren</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/assignment_2.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="opdracht-2-kinematics-met-manipulatoren">
+<h1>Opdracht 2: Kinematics met Manipulatoren<a class="headerlink" href="#opdracht-2-kinematics-met-manipulatoren" title="Link to this heading"></a></h1>
+<p>In deze workshop zul je doormiddel van een robot simulatie met ervaring opdoen met:</p>
+<ul class="simple">
+<li><p>Transfeur-frames</p></li>
+<li><p>Inverse-kinematica</p></li>
+</ul>
+<p>Deze workshop ondersteund de theorie die je geleerd hebt in de lesstof van
+Introduction in Robotics Kinematica</p>
+<section id="doelstellingen">
+<h2>Doelstellingen<a class="headerlink" href="#doelstellingen" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Begrijpen en toepassen van transfeur-frames</p></li>
+<li><p>Implementeren van inverse-kinematica voor een robotarm</p></li>
+<li><p>Programmeren van een robotcontroller in Python</p></li>
+<li><p>Simuleren van een robotarm die objecten oppakt en verplaatst</p></li>
+</ul>
+</section>
+<section id="voorbereidingen">
+<h2>Voorbereidingen<a class="headerlink" href="#voorbereidingen" title="Link to this heading"></a></h2>
+<p>Neem de volledige voorbereiding door voordat je begint met de opdracht.</p>
+<section id="starten-en-openen-webots-project">
+<h3>Starten en openen Webots-project<a class="headerlink" href="#starten-en-openen-webots-project" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start het Webots programma</p></li>
+<li><p>Open het “niryo_world.wbt” project uit het gedownloade project bestand.</p></li>
+<li><p>Open aan de linkerzijde van het project het niryoNed_controller_opdracht.py bestand.</p></li>
+</ol>
+<p><img alt="image" src="../_images/webots_niryo_screen.png" /></p>
+</section>
+<section id="testen-werking-van-het-programma">
+<h3>Testen werking van het programma<a class="headerlink" href="#testen-werking-van-het-programma" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Klik op de “Play” knop in Webots om de simulatie te starten.</p></li>
+</ol>
+<p>Je zult zien dat er een blokje door de transportband naar de robot wordt aangevoerd</p>
+<ul class="simple">
+<li><p>Iedere keer dat je start zal het blokje op een andere positie stoppen</p>
+<ul>
+<li><p>Wel even de rewind knop gebruiken</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>In de console van webots zul je een aantal waarschuwingen zien, deze kunnen genegeerd worden.</p>
+<p>Voorbeeld van een waarschuwing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="p">:</span> <span class="n">DEF</span> <span class="n">NIRYO_NED</span> <span class="n">Robot</span> <span class="o">&gt;</span> <span class="n">HingeJoint</span> <span class="s2">&quot;shoulder_link&quot;</span> <span class="o">&gt;</span> <span class="n">Solid</span> <span class="s2">&quot;shoulder_link&quot;</span> <span class="o">&gt;</span> <span class="n">HingeJoint</span> <span class="s2">&quot;arm_link&quot;</span> <span class="o">&gt;</span> <span class="n">Solid</span> <span class="s2">&quot;arm_link&quot;</span> <span class="o">&gt;</span> <span class="n">HingeJoint</span> <span class="s2">&quot;elbow_link&quot;</span> <span class="o">&gt;</span> <span class="n">Solid</span> <span class="s2">&quot;elbow_link&quot;</span> <span class="o">&gt;</span> <span class="n">HingeJoint</span> <span class="s2">&quot;forearm_link&quot;</span> <span class="o">&gt;</span> <span class="n">Solid</span> <span class="s2">&quot;forearm_link&quot;</span> <span class="o">&gt;</span> <span class="n">HingeJoint</span> <span class="s2">&quot;wrist_link&quot;</span> <span class="o">&gt;</span> <span class="n">RotationalMotor</span> <span class="s2">&quot;joint_5&quot;</span><span class="p">:</span> <span class="n">too</span> <span class="n">low</span> <span class="n">requested</span> <span class="n">position</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.5708</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.5</span>
+
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="opdracht-2-1">
+<h2>Opdracht 2.1<a class="headerlink" href="#opdracht-2-1" title="Link to this heading"></a></h2>
+<p>Maak het programma van de NiryoNED-robot-controller compleet:</p>
+<ul class="simple">
+<li><p>Pak het blokje van de lopende band met de robot en drop het in het krat naast de robot.</p></li>
+<li><p>Voor je eigen code in op de plaats waar “# Plaats hier je eigen states” staat (nabij regel 250</p></li>
+</ul>
+<p>Hieronder is gegeven de plaats waar je je eigen states kunt toevoegen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick and drop state definition</span>
+<span class="c1"># Alle toestanden(states) kunnen meerder functies hebben b.v. Entry, Do, Exit functie. Deze worden in 1 regel als List gedefineerd</span>
+<span class="c1"># Elke Functie dient ten minste een isReady als result te hebben, welke aangeeft dat de volgende functei/toestand aan de beurt is</span>
+<span class="n">pick_n_drop_states</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;isReady = niryo.setJoints(niryo.homePos)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = niryo.setGripper(niryo.gripperClose)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = niryo.isReady()&#39;</span><span class="p">],</span> <span class="c1"># Goto to Home position</span>
+          <span class="p">[</span><span class="s1">&#39;isReady = timer.start(3)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">],</span> <span class="c1"># wacht 3 seconden</span>
+
+          <span class="c1"># Plaats hier je eigen states</span>
+          <span class="p">[</span><span class="s1">&#39;isReady = niryo.setJoints(dropPos)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = niryo.isReady()&#39;</span><span class="p">],</span> <span class="c1"># Ga naar de drop positie</span>
+          <span class="c1"># Plaats hier je eigen states</span>
+
+          <span class="p">[</span><span class="s1">&#39;isReady = timer.start(3)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">]]</span> <span class="c1"># Wacht 3 seconden</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Hier zijn enkele tips om je op weg te helpen:</p>
+<ul class="simple">
+<li><p>Je kunt de functies gebruiken die verderop in dit document zijn beschreven</p></li>
+<li><p>Andere functies heb je niet nodig.
+Inverse-kinematica en transforms zijn al goed voor geconfigureerd</p></li>
+<li><p>Je hoeft alleen maar code aan te passen op de plaatsen waar # Plaats hier je eigen states staat (kunnen meerdere regels zijn).</p></li>
+<li><p>Werk nauwkeurig bij het programmeren, let op de volgorde van volgende leestekens:</p>
+<ul>
+<li><p>,</p></li>
+<li><p>( of )</p></li>
+<li><p>[ of ]</p></li>
+</ul>
+</li>
+<li><p>Zorg dat je programmeer-code op de juiste manier is ingespongen</p></li>
+<li><p>Volg de TODO stappen in het programma</p></li>
+<li><p>De volgende offsets zijn beschikbaar voor gebruik bij het grijpen van objecten:</p>
+<ul>
+<li><p>niryo.grasp_offset</p></li>
+<li><p>niryo.post_grasp_offset</p></li>
+<li><p>niryo.pre_grasp_offset</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">niryo</span><span class="o">.</span><span class="n">grasp_offset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]</span>
+<span class="n">niryo</span><span class="o">.</span><span class="n">post_grasp_offset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">niryo</span><span class="o">.</span><span class="n">pre_grasp_offset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Maak een filmpje van het resultaat en lever dit in op Brightspace aan het einde van de les.
+Ook doen als het nog niet geheel correct werkt!</p>
+</section>
+<section id="beschrijving-van-gebruikte-pythone-types">
+<h2>Beschrijving van gebruikte Pythone Types<a class="headerlink" href="#beschrijving-van-gebruikte-pythone-types" title="Link to this heading"></a></h2>
+<p>De volgende <code class="docutils literal notranslate"><span class="pre">Types</span></code> worden gebruikt in het programma:</p>
+<ul class="simple">
+<li><p>translation-position-type</p>
+<ul>
+<li><p>[x, y, z]</p>
+<ul>
+<li><p>In meters</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>translation-rotation-type (euler)</p>
+<ul>
+<li><p>[roll, pitch, yaw]</p>
+<ul>
+<li><p>In radialen</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>joints-type</p>
+<ul>
+<li><p>[shoulder, arm, elbow, forarm, wrist, hand]</p>
+<ul>
+<li><p>In radialen</p></li>
+<li><p>Let op “base” doet niet mee</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image" src="../_images/niryo_joint_names.png" /></p>
+</section>
+<section id="beschrijving-van-python-functies">
+<h2>Beschrijving van Python functies<a class="headerlink" href="#beschrijving-van-python-functies" title="Link to this heading"></a></h2>
+<p>De volgende Python functies worden gebruikt in het programma:</p>
+<section id="niryo-setjoints">
+<h3>niryo.setJoints()<a class="headerlink" href="#niryo-setjoints" title="Link to this heading"></a></h3>
+<p>Doel: Beweegt de joints van de robot-arm naar de ingestelde joints-waardes</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">setJoints</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>joints: joints-type</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>isReady: bool</p></li>
+</ul>
+<p>Wachten op klaar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">isReady</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>geen</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>isReady: bool</p></li>
+</ul>
+</section>
+<section id="getobjecttranslationfromcamera">
+<h3>getObjectTranslationFromCamera()<a class="headerlink" href="#getobjecttranslationfromcamera" title="Link to this heading"></a></h3>
+<p>Doel: Neemt een foto met de camera en berekend de translatie van het object dat door de camera gezien.</p>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Translation is t.o.v. niryoNED-robot-base</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span><span class="p">,</span> <span class="n">translation_position</span><span class="p">,</span> <span class="n">translation_rotation</span> <span class="o">=</span> <span class="n">getObjectTranslationFromCamera</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>Geen</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>translation_rotation:</p>
+<ul>
+<li><p>translation-rotation-type</p></li>
+<li><p>translation_position:</p></li>
+<li><p>translation-position-type
+isReady: bool(altijd True)</p></li>
+</ul>
+</li>
+</ul>
+<p>Wachten op klaar:</p>
+<ul class="simple">
+<li><p>Niet nodig</p>
+<ul>
+<li><p>isReady = True</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="niryo-getjoints">
+<h3>niryo.getJoints()<a class="headerlink" href="#niryo-getjoints" title="Link to this heading"></a></h3>
+<p>Doel: Geeft de waardes van de huidige joints van de robot arm terug.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span><span class="p">,</span> <span class="n">initial_joints</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">getJoints</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>Geen</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>initial_joints: joints-type</p></li>
+<li><p>isReady: bool (altijd True)</p></li>
+</ul>
+<p>Wachten op klaar:</p>
+<ul class="simple">
+<li><p>Niet nodig</p>
+<ul>
+<li><p>isReady = True</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="kinematics-solver-get">
+<h3>kinematics_solver.get()<a class="headerlink" href="#kinematics-solver-get" title="Link to this heading"></a></h3>
+<p>Doel: Berekend de joint-waardes voor de niryoNED-robot.</p>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>De translation dient t.o.v. de niryoNED-robot-base te zijn.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span><span class="p">,</span> <span class="n">joint_values</span> <span class="o">=</span> <span class="n">kinematics_solver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">translation_position</span><span class="p">,</span> <span class="n">translation_rotation</span><span class="p">,</span> <span class="n">initial_joints</span><span class="p">,</span> <span class="n">grasp_offset</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>translation_position:</p>
+<ul>
+<li><p>translation-position-type</p></li>
+</ul>
+</li>
+<li><p>translation_rotation:</p>
+<ul>
+<li><p>translation-rotation-type</p></li>
+</ul>
+</li>
+<li><p>initial_joints:</p>
+<ul>
+<li><p>joints-type</p></li>
+</ul>
+</li>
+<li><p>grasp_offset:</p>
+<ul>
+<li><p>translation-position-type</p></li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>joint_values:</p>
+<ul>
+<li><p>joints-type</p></li>
+</ul>
+</li>
+<li><p>isReady:</p>
+<ul>
+<li><p>bool (altijd True)</p></li>
+</ul>
+</li>
+</ul>
+<p>Wachten op klaar:</p>
+<ul class="simple">
+<li><p>Niet nodig</p>
+<ul>
+<li><p>isReady = True</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="niryo-setgripper">
+<h3>niryo.setGripper()<a class="headerlink" href="#niryo-setgripper" title="Link to this heading"></a></h3>
+<p>Doel: Openen en sluiten gripper</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">setGripper</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>state:</p>
+<ul>
+<li><p>niryo.gripperOpen</p></li>
+<li><p>niryo.gripperClose</p></li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>isReady: bool</p></li>
+</ul>
+</section>
+<section id="niryo-isready">
+<h3>niryo.isReady()<a class="headerlink" href="#niryo-isready" title="Link to this heading"></a></h3>
+<p>Doel: Controleert of de robot klaar is voor de volgende actie.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">isReady</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">isReady</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>geen</p></li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><p>isReady: bool</p>
+<ul>
+<li><p>True: Klaar voor de volgende actie</p></li>
+<li><p>False: Niet klaar voor de volgende actie</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="ideale-drop-position">
+<h2>Ideale drop-position<a class="headerlink" href="#ideale-drop-position" title="Link to this heading"></a></h2>
+<p>De ideale drop-position is de positie waar het object door de robot in de bak kan worden gedoponeerd.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dropPos</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="n">isReady</span> <span class="o">=</span> <span class="n">niryo</span><span class="o">.</span><span class="n">setJoints</span><span class="p">(</span><span class="n">dropPos</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="assignment_1.html" class="btn btn-neutral float-left" title="Opdracht 1: Mobile platformen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Voorbeeldprogramma’s" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkeman.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="nl" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opdracht 1: Mobile platformen &mdash; Workshop Simulatie van Robots met Webots 0.1 documentatie</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=a57088fb"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=e4d38c6a"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdracht 2: Kinematics met Manipulatoren" href="assignment_2.html" />
+    <link rel="prev" title="Voorbereidingen" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Workshop Simulatie van Robots met Webots
+              <img src="../_static/avans-hogeschool-logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Zoek in documentatie" aria-label="Zoek in documentatie" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigatiemenu">
+              <p class="caption" role="heading"><span class="caption-text">Inhoudsopgave:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Voorbereidingen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Opdracht 1: Mobile platformen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#doelstellingen">Doelstellingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-1-kennismaken-met-webots">Opdracht 1.1: Kennismaken met Webots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-2-besturen-van-het-mobiele-platform">Opdracht 1.2: Besturen van het mobiele platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-1-arena-bouwen">Opdracht 1.2.1: Arena bouwen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-2-toevoegen-van-de-robot-aan-de-arena">Opdracht 1.2.2: Toevoegen van de robot aan de arena</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-3-toevoegen-van-de-obstakels-aan-de-arena">Opdracht 1.2.3: Toevoegen van de obstakels aan de arena</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-4-simulatie-starten">Opdracht 1.2.4: Simulatie starten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-5-controller-toevoegen-voor-pioneer3at">Opdracht 1.2.5: Controller toevoegen voor Pioneer3at</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-6-verkennen-van-de-controller">Opdracht 1.2.6: Verkennen van de controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-2-7-bewegingen-uitbreiden">Opdracht 1.2.7: Bewegingen uitbreiden</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-3-toevoeg-van-virtuele-camera">Opdracht 1.3: Toevoeg van virtuele camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-3-1-toevoegen-van-shape-aan-camera">Opdracht 1.3.1: Toevoegen van shape aan camera</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opdracht-1-4-testen">Opdracht 1.4: Testen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_2.html">Opdracht 2: Kinematics met Manipulatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Voorbeeldprogramma’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Veelgestelde vragen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teacher_manual.html">Docentenhandleiding</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Navigatiemenu voor mobiel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Workshop Simulatie van Robots met Webots</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Paginanavigatie">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Opdracht 1: Mobile platformen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/documentation/assignment_1.md.txt" rel="nofollow"> Bekijk paginabron</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="opdracht-1-mobile-platformen">
+<h1>Opdracht 1: Mobile platformen<a class="headerlink" href="#opdracht-1-mobile-platformen" title="Link to this heading"></a></h1>
+<p>In deze opdracht leer je hoe je mobiele platformen kunt besturen en simuleren met Webots. Je gaat aan de slag met het programmeren van een mobiel robotplatform en het uitvoeren van verschillende bewegingstaken.</p>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Voordat je begint met deze opdracht, is het belangrijk dat je Webots hebt geïnstalleerd en dat je enige kennis van Python hebt, zie <a class="reference internal" href="install.html"><span class="std std-doc">installatie</span></a></p>
+</div>
+<section id="doelstellingen">
+<h2>Doelstellingen<a class="headerlink" href="#doelstellingen" title="Link to this heading"></a></h2>
+<p>In deze workshop leer je het volgende:</p>
+<p>Bouwen van een visualisatie van een robotcel bestaande uit:
+Rijdend platform
+Obstakels</p>
+<p>Het koppelen van een controller aan de robot</p>
+<p>Het uitbreiden van de functionaliteit van de controller door het aanpassen van het controller python programma</p>
+<p>Het toevoegen van sensors (o.a. camera) aan het rijdend platform en deze sensor te gebruiken in de controller</p>
+<p>Er wordt van je verwacht dat je enige kennis van de programmeertaal Python hebt.
+Heb je dat nog niet volg dan de volgende course (buiten de lestijd)
+<a class="reference external" href="https://www.python.org/about/gettingstarted/">Python Course</a></p>
+</section>
+<section id="opdracht-1-1-kennismaken-met-webots">
+<h2>Opdracht 1.1: Kennismaken met Webots<a class="headerlink" href="#opdracht-1-1-kennismaken-met-webots" title="Link to this heading"></a></h2>
+<p>Volg het eerste deel van de online tutorial op de Webots site:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">Tutorial 1: Your First Simulation in Webots</a></p></li>
+<li><p>Als je bij het onderdeel “Create a New Controller” aankomt zorg ervoor dat je Python selecteert voor de code.
+<img alt="Programming language Selector" src="../_images/programming_language_selector.png" /></p></li>
+<li><p>Je kunt de code door copy en paste in je eigen controller zetten.</p></li>
+<li><p>Vergeet niet je controller-bestand op te slaan alvorens je de simulatie start!</p></li>
+</ul>
+</section>
+<section id="opdracht-1-2-besturen-van-het-mobiele-platform">
+<h2>Opdracht 1.2: Besturen van het mobiele platform<a class="headerlink" href="#opdracht-1-2-besturen-van-het-mobiele-platform" title="Link to this heading"></a></h2>
+<p>In deze opdracht ga je het mobiele platform besturen met behulp van the controller die je in de vorige opdracht hebt aangemaakt. Je leert hoe je de bewegingen van het platform kunt programmeren en simuleren in Webots.</p>
+<section id="opdracht-1-2-1-arena-bouwen">
+<h3>Opdracht 1.2.1: Arena bouwen<a class="headerlink" href="#opdracht-1-2-1-arena-bouwen" title="Link to this heading"></a></h3>
+<p>Maak een nieuwe “wereld”:</p>
+<ul class="simple">
+<li><p>Open het <code class="docutils literal notranslate"><span class="pre">&lt;pad_naar_workshopbestanden&gt;/workspace/worlds/empty_world.wbt</span></code> bestand
+File→Open World…
+Navigeer naar de worlds map en selecteer het juiste bestand</p></li>
+<li><p>Sla dit bestand op als <code class="docutils literal notranslate"><span class="pre">&lt;pad_naar_workshopbestanden&gt;/workspace/worlds/mobile_platform.wbt</span></code> bestand
+File→Save World As…</p></li>
+</ul>
+<p>Pas de RectangleArena aan:</p>
+<ul class="simple">
+<li><p>(attribute)floorSize: 5 x 5 meter</p></li>
+<li><p>Tweak eventuele andere attributten zodat je een gepersonaliseerde arena krijgt waarin het mobiele platform kan rond rijden</p></li>
+</ul>
+<p>Sla het bestand op</p>
+<ul class="simple">
+<li><p>File→Save World</p></li>
+</ul>
+</section>
+<section id="opdracht-1-2-2-toevoegen-van-de-robot-aan-de-arena">
+<h3>Opdracht 1.2.2: Toevoegen van de robot aan de arena<a class="headerlink" href="#opdracht-1-2-2-toevoegen-van-de-robot-aan-de-arena" title="Link to this heading"></a></h3>
+<p>Voeg een node in de vorm van een Pioneer3at toe aan de arena</p>
+<ul class="simple">
+<li><p>Zorg ervoor dat je met de muis in de “3D Window” staat. (Click 1 keer met je muis voor de zekerheid)</p></li>
+<li><p>Gebruik de + knop om een node toe te voegen</p></li>
+</ul>
+<p><img alt="Pioneer3at toevoegen" src="../_images/model_explorer.png" /></p>
+<ul class="simple">
+<li><p>Selecteer de “Pioneer3at” robot en click op “Add”</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Je kunt ook de Find functie gebruiken</p>
+</div>
+<p>Als de robot is geplaats, kun je hem verplaatsen naar een door jou gekozen plaats in de arena.</p>
+<ul class="simple">
+<li><p>Click op de robot en verplaats hem met de rode of groene pijl</p></li>
+</ul>
+<p>Sla de wereld op</p>
+</section>
+<section id="opdracht-1-2-3-toevoegen-van-de-obstakels-aan-de-arena">
+<h3>Opdracht 1.2.3: Toevoegen van de obstakels aan de arena<a class="headerlink" href="#opdracht-1-2-3-toevoegen-van-de-obstakels-aan-de-arena" title="Link to this heading"></a></h3>
+<p>Plaats een aantal obstakels in de arena, willekeurig verspreid</p>
+<ul class="simple">
+<li><p>Je kunt de nodes uit “PROTO nodes(Webots Projects)” gebruiken</p></li>
+<li><p>Bijvoorbeeld:</p>
+<ul>
+<li><p>PROTO nodes(Webots Projects)→Objects→drinks→Can</p></li>
+</ul>
+</li>
+</ul>
+<p>Zorg er voor dat de objecten ongeveer even hoog zijn als de Pioneer3at robot.</p>
+<ul class="simple">
+<li><p>Gebruik hiervoor het scale-attribute van het geplaatste object</p>
+<ul>
+<li><p>Soms zijn er nog andere attributen waarmee je de omvang van het object kunt bepalen</p></li>
+</ul>
+</li>
+</ul>
+<p>Sla de wereld op</p>
+</section>
+<section id="opdracht-1-2-4-simulatie-starten">
+<h3>Opdracht 1.2.4: Simulatie starten<a class="headerlink" href="#opdracht-1-2-4-simulatie-starten" title="Link to this heading"></a></h3>
+<p>Je kunt de simulatie nu starten, echter je zult ontdekken dat er nog niet gebeurt, toch behandelen we hier even de belangrijkste knoppen</p>
+<p><img alt="Simulatie knoppen" src="../_images/simulation_buttons.png" /></p>
+<ol class="arabic simple">
+<li><p>Simulatie Start/Stop</p>
+<ul class="simple">
+<li><p>Start of stop de simulatie</p></li>
+</ul>
+</li>
+<li><p>Simulatie in kleine stapje(tijdseenheden)</p>
+<ul class="simple">
+<li><p>Laat de simulatie stap voor stap verlopen</p></li>
+</ul>
+</li>
+<li><p>Simulatie op maximale snelheid die de computer kan leveren</p>
+<ul class="simple">
+<li><p>Laat de simulatie zo snel mogelijk verlopen</p></li>
+</ul>
+</li>
+<li><p>Rewind Simulatie</p>
+<ul class="simple">
+<li><p>Simulatie gaat weer naar uitgangspositie</p></li>
+<li><p>Gebruik deze functie altijd voordat je iets wijzigt aan de wereld</p></li>
+</ul>
+</li>
+<li><p>Simulatie tijd</p>
+<ul class="simple">
+<li><p>Geeft de huidige simulatie tijd weer</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Als de simuatie niet werkt kijk dan bij <a class="reference internal" href="faq.html"><span class="std std-doc">Veelgestelde vragen</span></a></p>
+</div>
+</section>
+<section id="opdracht-1-2-5-controller-toevoegen-voor-pioneer3at">
+<h3>Opdracht 1.2.5: Controller toevoegen voor Pioneer3at<a class="headerlink" href="#opdracht-1-2-5-controller-toevoegen-voor-pioneer3at" title="Link to this heading"></a></h3>
+<p>Als je probeer te simuleren zul je merken dat de robot nog niet beweegt. Er is nog geen controller aan toegevoegd.</p>
+<p>Voeg een controller toe</p>
+<ul class="simple">
+<li><p>Navigeer in de “Scene Tree” naar het controller attribute</p>
+<ul>
+<li><p>Pioneer3at”Pioneer 3-AT”controller</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Controller attribute" src="../_images/Controller_selector1.png" /></p>
+<ul class="simple">
+<li><p>Selecteer de “Pioneer2atV2_controller”</p></li>
+</ul>
+<p><img alt="Controller attribute" src="../_images/Controller_selector2.png" /></p>
+<ul class="simple">
+<li><p>Sla de wereld op</p></li>
+</ul>
+<p>Start een simulatie</p>
+</section>
+<section id="opdracht-1-2-6-verkennen-van-de-controller">
+<h3>Opdracht 1.2.6: Verkennen van de controller<a class="headerlink" href="#opdracht-1-2-6-verkennen-van-de-controller" title="Link to this heading"></a></h3>
+<p>Open het “Pioneer2atV2_controller.py” bestand in de Code Editor (rechter paneel)</p>
+<p>Bestudeer dit Python bestand en zoek de regel</p>
+<ul class="simple">
+<li><p>“# Voeg hier je eigen bewegingen aan toe”</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Voeg hier je eigen bewegingen aan toe</span>
+<span class="c1"># movement_states definition</span>
+<span class="c1"># Alle toestanden(states) kunnen meerder functies hebben b.v. Entry, Do, Exit functie. Deze worden in 1 regel als List gedefineerd</span>
+<span class="c1"># Elke Functie dient ten minste een isReady als result te hebben, welke aangeeft dat de volgende functie/toestand aan de beurt is</span>
+<span class="n">movement_states</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;isReady = pioneer.moveForward(4)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.start(2)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">],</span>
+                  <span class="p">[</span><span class="s1">&#39;isReady = pioneer.rotateRight(1.5)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.start(1.5)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">],</span>
+                  <span class="p">[</span><span class="s1">&#39;isReady = pioneer.moveForward(3)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.start(3)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">],</span>
+                  <span class="p">[</span><span class="s1">&#39;isReady = pioneer.moveForward(0)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.start(1.5)&#39;</span><span class="p">,</span> <span class="s1">&#39;isReady = timer.isReady()&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In movement_states is het bewegingspatroon van de Pioneer3at gedefinieerd, deze kun jezelf aanpassen</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Met de Pioneer3at Class kun je de volgende Python functies in je movement_states list opnemen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pioneer</span><span class="o">.</span><span class="n">moveForward</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="n">pioneer</span><span class="o">.</span><span class="n">moveBackward</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="n">pioneer</span><span class="o">.</span><span class="n">rotateRight</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="n">pioneer</span><span class="o">.</span><span class="n">rotateLeft</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Elke functie geeft een isReady retour, welke gebruikt word in de toestanden(state) afhandeling dat de volgend toestand aan de beurt is
+De def execute_states_list(states) functie over deze taak uit</p>
+<p>Let op: pioneer is een afgeleid object van de klasse Pioneer3at</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pioneer</span> <span class="o">=</span> <span class="n">Pioneer3at</span><span class="p">(</span><span class="n">pioneer_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Notitie</p>
+<p>Met de Timer Class kun je de volgende Python functies in je movement_states list opnemen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">timer</span><span class="o">.</span><span class="n">Start</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Start de timer voor de gespecificeerde tijd</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">timer</span><span class="o">.</span><span class="n">isReady</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Controleert of de timer klaar is en geeft de volgende waardes terug</p>
+<ul class="simple">
+<li><p>False: Timer is nog niet klaar en volgende toestand is nog niet aan de beurt</p></li>
+<li><p>True: Timer is klaar, volgende toestand kan worden uitgevoerd</p></li>
+</ul>
+<p>Let op: timer is een afgeleid object van de klasse Timer</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">pioneer_node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="opdracht-1-2-7-bewegingen-uitbreiden">
+<h3>Opdracht 1.2.7: Bewegingen uitbreiden<a class="headerlink" href="#opdracht-1-2-7-bewegingen-uitbreiden" title="Link to this heading"></a></h3>
+<p>Breid de movement_states list in het “Pioneer2atV2_controller.py” uit met minimaal 5 bewegingen</p>
+<ul class="simple">
+<li><p>Navigeer om de geplaatste obstakels heen</p></li>
+<li><p>De volgende aandachtspunten zijn aan de orde:</p>
+<ul>
+<li><p>Elke functie die je aanroept heeft een isReady resultaat</p></li>
+<li><p>Let op het gebruik van de volgende tekens</p>
+<ul>
+<li><p>‘ of  ’, “ of  “</p></li>
+<li><p>( of )</p></li>
+<li><p>[ of ]</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Sla het “Pioneer2atV2_controller.py”  regelmatig op</p>
+<p>Test je simulatie</p>
+</section>
+</section>
+<section id="opdracht-1-3-toevoeg-van-virtuele-camera">
+<h2>Opdracht 1.3: Toevoeg van virtuele camera<a class="headerlink" href="#opdracht-1-3-toevoeg-van-virtuele-camera" title="Link to this heading"></a></h2>
+<p>In deze opdracht ga je een virtuele camera toevoegen aan de Pioneer3at robot in de simulatie.</p>
+<p>Converteer de Pioneer 3-AT robot naar “Base Nodes”:</p>
+<ul class="simple">
+<li><p>Selecteer de robot in de Scene Tree</p></li>
+<li><p>Rechtermuisclick  Convert to Base Node(s)</p>
+<ul>
+<li><p>Door deze handeling wordt het mogelijk om “Childeren” aan de robot toe te voegen. Een “Child” kan een sensor, object, etc. zijn die een relatie heeft met zijn “Parent”</p></li>
+</ul>
+</li>
+</ul>
+<p>Expandeer de Pioneer 3-AT node en selecteer de Childeren-node</p>
+<ul class="simple">
+<li><p>Voeg aan de Childeren-node een camera toe</p>
+<ul>
+<li><p>Er wordt een virtuele camera gemaakt welke (nog) geen visuele vorm heeft</p></li>
+<li><p>Select voor het recognition attribuut van de camera de ‘Recognition’ optie, als deze NULL is.</p></li>
+</ul>
+</li>
+<li><p>Activeer in de controller de camera door de “use_camera” variable van <code class="docutils literal notranslate"><span class="pre">False</span></code> naar <code class="docutils literal notranslate"><span class="pre">True</span></code> te wijzigen</p></li>
+</ul>
+<section id="opdracht-1-3-1-toevoegen-van-shape-aan-camera">
+<h3>Opdracht 1.3.1: Toevoegen van shape aan camera<a class="headerlink" href="#opdracht-1-3-1-toevoegen-van-shape-aan-camera" title="Link to this heading"></a></h3>
+<p>De camera is niet zichtbaar als object. We voegen een cilinder toe als visual object, welke de camera voorstelt.</p>
+<p>Expandeer van de camera de Childeren-node en voeg hieraan een Pose toe.</p>
+<ul class="simple">
+<li><p>Dit is de positie en rostatie van de cilinder(die je later toevoegt) ten opzichte van de camera. Je hoeft hiervan de attributen niet te wijzigen</p></li>
+</ul>
+<p>Expandeer van de Pose de Childeren-node en voeg hieraan een Shape in de vorm van een cilinder(geometry Cylinder) toe</p>
+<ul class="simple">
+<li><p>Wijzig het appearance atrribute in PBRAppearance en selecteer een kleur voor de cilinder</p></li>
+<li><p>Zorg ervoor dat de cilinder de juiste afmetingen en plaats op de robot, maak hiervan zelf een inschatting</p></li>
+</ul>
+<p><img alt="camera object" src="../_images/webot_camera_object.png" /></p>
+</section>
+</section>
+<section id="opdracht-1-4-testen">
+<h2>Opdracht 1.4: Testen<a class="headerlink" href="#opdracht-1-4-testen" title="Link to this heading"></a></h2>
+<p>Test de camera aan de hand van je simulatie. Bestudeer het gedrag en controleer of de camera in zijn geheel mee beweegt met de robot.</p>
+<p>De camera heeft nog geen “Object Recognition” (object herkenning). Er verschijnen nog geen kaders om de objecten die door de camera worden gezien.</p>
+<p>Wijzig de simulatie dat de objecten wel door de camera worden gezien. Dit dient op twee plaatsen te gebeuren:
+In de Scene tree
+In het controller programma</p>
+<p>Test de werking van de object herkening.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Voettekst">
+        <a href="install.html" class="btn btn-neutral float-left" title="Voorbereidingen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Vorige</a>
+        <a href="assignment_2.html" class="btn btn-neutral float-right" title="Opdracht 2: Kinematics met Manipulatoren" accesskey="n" rel="next">Volgende <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gerard Harkeman.</p>
+  </div>
+
+  Gebouwd met <a href="https://www.sphinx-doc.org/">Sphinx</a> met een
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thema</a>
+    geleverd door <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
