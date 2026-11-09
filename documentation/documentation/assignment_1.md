@@ -6,6 +6,8 @@ In deze opdracht leer je hoe je mobiele platformen kunt besturen en simuleren me
 Voordat je begint met deze opdracht, is het belangrijk dat je Webots hebt geïnstalleerd en dat je enige kennis van Python hebt, zie [installatie](./install.md)
 :::
 
+![image](../images/pioneer_3dx.jpg)
+
 ## Doelstellingen
 
 In deze workshop leer je het volgende:
